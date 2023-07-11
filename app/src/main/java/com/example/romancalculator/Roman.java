@@ -31,7 +31,26 @@ public class Roman {
             if (index == -1) {
                 throw new RomanException(c + " is an invalid character!");
             }
+
+            short value = romanValues[index];
+
+            //Counting how many times the same letter has been repeated
+            if (previousIndex == index || i == romanNumber.length() - 1) {
+                sameValueCounter++;
+            }
+            else {
+                sameValueCounter = 1;
+            }
+
+            /**If a letter has been repeated 4 times and it is not the highest value letter
+             * i.e. M in standard Roman numeral format, then we have an exception
+             */
+            if (sameValueCounter == 4 && index != romanLetters.length -1) {
+                throw new RomanException ("You entered " + romanNumber + " You cannot have 4 " + c + " in a row");
+            }
         }
+
+
 
         return 1; //temporary testing value
     }
