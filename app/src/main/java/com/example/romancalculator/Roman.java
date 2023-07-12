@@ -48,10 +48,27 @@ public class Roman {
             if (sameValueCounter == 4 && index != romanLetters.length -1) {
                 throw new RomanException ("You entered " + romanNumber + " You cannot have 4 " + c + " in a row");
             }
+
+            /**Determining whether to add or subtract.
+             * For example, if we have VIII, reading from right to left we will add up I (1) 3 times and V (5) once.
+             * If we have, IIIV, reading from right to left, we will start off with V (5), and subtract I (1) 3 times
+             */
+            if (previousIndex <= index) {
+                totalValue += value;
+
+            }
+            else {
+
+                totalValue -= value;
+            }
+
+            previousIndex = index;
+
+
         }
 
 
 
-        return 1; //temporary testing value
+        return totalValue;
     }
 }
