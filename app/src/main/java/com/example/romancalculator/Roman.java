@@ -2,6 +2,37 @@ package com.example.romancalculator;
 
 public class Roman {
 
+    /**Converts a short number into a Roman numeral
+     * @param n The short number that will be converted to a Roman numeral
+     * @return The Roman numeral equivalent of the short n
+     * @throws RomanException checks for invalid numerical values such as negative numbers
+     */
+
+    public static String convertToRoman (short n) throws RomanException {
+        if (n <= 0) {
+            throw new RomanException("You passed " + n + " Only positive numbers allowed!!!");
+        }
+        if (n >= 5000) {
+            throw new RomanException("NUMBER OUT OF BOUNDS!");
+        }
+
+        /**Arrays that contain the letters used to represent each section in a Roman Numeral
+         * ones, tens, hundreds, and thousands
+         * Also a counter variable
+         */
+
+        String[] ones = {"I", "V", "X"};
+        String[] tens = {"X", "L", "C"};
+        String[] hundreds = {"C", "D", "M"};
+        String[] thousands = {"M"};
+        String romanNum = "";
+        int counter = 0;
+
+        //todo
+
+        return "";
+    }
+
     public static short findIndex (char letter, String[] romanLetters) {
         for (short i = 0; i < romanLetters.length; i++) {
             if (letter == romanLetters[i].charAt(0)) {
@@ -71,4 +102,6 @@ public class Roman {
 
         return totalValue;
     }
+
+
 }
