@@ -2,6 +2,27 @@ package com.example.romancalculator;
 
 public class Roman {
 
+    /**
+     * Converts a short digit into Roman numeral format based on whether it
+     * falls in the ones, tens, hundreds, thousands, or ten thousands section
+     *
+     * @param n the digit we want to convert to Roman numeral format (it is a short that goes from 0-9)
+     * @param romans The array for whether it falls in the ones, tens, hundreds,
+     * thousands or ten thousands.
+     * @return The Roman digit for the short digit "n"
+     */
+    public static String convertDigitToRoman (short n, String[] romans) {
+        /**if n is 0 we return an empty string because if the digit is 0
+         * there is no equivalent Roman digit
+         */
+        if (n == 0) {
+            return "";
+        }
+        else{
+            return ""; //temporary testing
+        }
+    }
+
     /**Converts a short number into a Roman numeral
      * @param n The short number that will be converted to a Roman numeral
      * @return The Roman numeral equivalent of the short n
@@ -28,9 +49,43 @@ public class Roman {
         String romanNum = "";
         int counter = 0;
 
-        //todo
 
-        return "";
+
+        do {
+            /**Separating the last digit from the number
+             * for example, for 346 the modulo would isolate 6 for us
+             */
+            short digit = (short) (n % 10);
+
+            /**Every time the counter goes up we go up one section
+             * we start with ones then go up to tens then hundreds, etc.
+             */
+            if (counter == 0) {
+                romanNum = convertDigitToRoman(digit, ones) + romanNum;
+            }
+            else if (counter == 1) {
+                romanNum = convertDigitToRoman(digit, tens) + romanNum;
+            }
+            else if (counter == 2) {
+                romanNum = convertDigitToRoman(digit, hundreds) + romanNum;
+            }
+            else if (counter == 3) {
+                romanNum = convertDigitToRoman(digit, thousands) + romanNum;
+            }
+            //increasing the counter
+            counter++;
+
+            /**dividing n by 10 so that in the next iteration when we
+             * isolate the remaining digits. For example, if we have 346
+             * We already dealt with 6, so this division will live us with 34
+             * for the next iteration
+             */
+            n /= 10;
+
+            //Repeating this process until our division results with equaling 0
+        } while (n!=0);
+
+        return romanNum;
     }
 
     public static short findIndex (char letter, String[] romanLetters) {
