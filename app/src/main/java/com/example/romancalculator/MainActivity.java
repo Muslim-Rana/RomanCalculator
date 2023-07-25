@@ -35,8 +35,24 @@ public class MainActivity extends AppCompatActivity {
         if (Integer.parseInt(s) <= 0 || Integer.parseInt(s) >= 5000) {
             t.setText("INVALID VALUE! OUT OF BOUNDS!");
         }
+        else{
+            try {
+                t.setText(r.convertToRoman(Integer.parseInt(s)));
+            }
+            catch (RomanException e) {
+                System.out.println(e.getMessage());
+            }
 
-        //todo
+        }
+    }
+
+    /**
+     * Clears both the input and output text fields
+     * @param view Used for accessing the text fields
+     */
+    public void clearTexts (View view) {
+        ((TextView) findViewById(R.id.TextView1)).setText("");
+        ((TextView) findViewById(R.id.outText)).setText("");
     }
 
 }

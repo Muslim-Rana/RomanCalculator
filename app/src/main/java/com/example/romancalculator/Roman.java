@@ -18,18 +18,65 @@ public class Roman {
         if (n == 0) {
             return "";
         }
-        else{
-            return ""; //temporary testing
+        /**if the digit is up to 3, then we add the respective letter n times
+         * This works because III, XXX, CCC are all valid
+         * For example, if the digit is 2 and the string romans is ones then
+         * this will return II
+         *
+         */
+        else if (n<=3) {
+            String ret = "";
+            for (int i = 1; i<=n; i++) {
+                ret += romans[0];
+            }
+            return ret;
+        }
+
+        /**If the digit is 4 we take the roman letter at romans[0] and
+         * put the at romans [1]. For example, in the tens section
+         * If our digit is 4 (from 40), we would take X and then put L with it
+         *
+         * Our exception is for the highest valued letter, since we can repeat it 4 times
+         * In regular roman numerals, this is M.
+         */
+        else if (n==4) {
+            if (romans.length > 1) {
+                return romans[0] + romans[1];
+            }
+            //No higher order Roman numeral
+            return romans[0] + romans[0] + romans[0] + romans[0];
+
+        }
+        /**Return romans[1] if n is 5, for example
+         * in the ones: V
+         * tens: L
+         * hundreds: D
+         * etc.
+         */
+        else if (n==5) {
+            return romans[1];
+        }
+        //Similar process to when n was less than or equal to 3.
+        else if (n<=8) {
+            String ret = romans[1];
+            for (int i = 6; i<=n; i++) {
+                ret += romans[0];
+            }
+            return ret;
+        }
+        //for n == 9
+        else {
+            return romans[0] + romans[2];
         }
     }
 
-    /**Converts a short number into a Roman numeral
-     * @param n The short number that will be converted to a Roman numeral
-     * @return The Roman numeral equivalent of the short n
+    /**Converts an int number into a Roman numeral
+     * @param n The int number that will be converted to a Roman numeral
+     * @return The Roman numeral equivalent of the int n
      * @throws RomanException checks for invalid numerical values such as negative numbers
      */
 
-    public static String convertToRoman (short n) throws RomanException {
+    public static String convertToRoman (int n) throws RomanException {
         if (n <= 0) {
             throw new RomanException("You passed " + n + " Only positive numbers allowed!!!");
         }
@@ -156,6 +203,41 @@ public class Roman {
 
 
         return totalValue;
+    }
+
+    public static void main(String[] args) {
+        //Testing our methods with valid and invalid parameters
+
+        try {
+            System.out.println(convertToInt("mcmxcix"));
+        }
+        catch (RomanException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        try {
+            System.out.println(convertToInt("ixi"));
+        }
+        catch (RomanException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        try {
+            System.out.println(convertToRoman((short) -13));
+        }
+        catch (RomanException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        try {
+            System.out.println(convertToRoman((short) 13));
+        }
+        catch (RomanException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
