@@ -205,40 +205,5 @@ public class Roman {
         return totalValue;
     }
 
-    public static void main(String[] args) {
-        //Testing our methods with valid and invalid parameters
-
-        try {
-            System.out.println(convertToInt("mcmxcix"));
-        }
-        catch (RomanException e) {
-            System.out.println(e.getMessage());
-        }
-
-
-        try {
-            System.out.println(convertToInt("ixi"));
-        }
-        catch (RomanException e) {
-            System.out.println(e.getMessage());
-        }
-
-
-        try {
-            System.out.println(convertToRoman((short) -13));
-        }
-        catch (RomanException e) {
-            System.out.println(e.getMessage());
-        }
-
-
-        try {
-            System.out.println(convertToRoman((short) 13));
-        }
-        catch (RomanException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
 
 }
