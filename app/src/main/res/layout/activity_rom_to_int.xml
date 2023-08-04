@@ -1,6 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".RomToInt">
+
+
+    <Button
+        android:id="@+id/buttonEqual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginLeft="162dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginRight="162dp"
+        android:onClick="addSubRoman"
+        android:text="@string/buttonEqual"
+        app:layout_constraintBottom_toTopOf="@+id/intConvert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginLeft="161dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginRight="162dp"
+        android:layout_marginBottom="3dp"
+        android:onClick="clearTexts"
+        android:text="@string/buttonClear"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEqual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonI" />
+
+    <Button
+        android:id="@+id/intConvert2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="114dp"
+        android:layout_marginLeft="114dp"
+        android:layout_marginEnd="114dp"
+        android:layout_marginRight="114dp"
+        android:onClick="goIntToRoman"
+        android:text="@string/intToRomButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intConvert" />
+
+    <Button
+        android:id="@+id/buttonPlus2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginBottom="220dp"
+        android:onClick="appendButtonValue"
+        android:text="@string/buttonMinus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonI"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonL" />
+
+    <Button
+        android:id="@+id/buttonPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="220dp"
+        android:onClick="appendButtonValue"
+        android:text="@string/buttonPlus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/intConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="126dp"
+        android:layout_marginLeft="126dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="126dp"
+        android:layout_marginRight="126dp"
+        android:layout_marginBottom="11dp"
+        android:onClick="romanToInt"
+        android:text="@string/intConverter"
+        app:layout_constraintBottom_toTopOf="@+id/intConvert2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEqual" />
+
+    <Button
+        android:id="@+id/buttonI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="57dp"
+        android:layout_marginLeft="57dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginRight="61dp"
+        android:onClick="appendButtonValue"
+        android:text="@string/buttonI"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPlus"
+        app:layout_constraintStart_toEndOf="@+id/buttonPlus2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonX" />
+
+    <Button
+        android:id="@+id/buttonV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="74dp"
+        android:onClick="appendButtonValue"
+        android:text="@string/buttonV"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPlus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonX"
+        app:layout_constraintTop_toBottomOf="@+id/buttonC" />
+
+    <Button
+        android:id="@+id/buttonX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginRight="61dp"
+        android:layout_marginBottom="74dp"
+        android:onClick="appendButtonValue"
+        android:text="@string/buttonX"
+        app:layout_constraintBottom_toTopOf="@+id/buttonI"
+        app:layout_constraintEnd_toStartOf="@+id/buttonV"
+        app:layout_constraintStart_toEndOf="@+id/buttonL"
+        app:layout_constraintTop_toBottomOf="@+id/buttonD" />
+
+    <Button
+        android:id="@+id/buttonL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="63dp"
+        android:onClick="appendButtonValue"
+        android:text="@string/buttonL"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPlus2"
+        app:layout_constraintEnd_toStartOf="@+id/buttonX"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonM" />
+
+    <Button
+        android:id="@+id/buttonC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:onClick="appendButtonValue"
+        android:text="@string/buttonC"
+        app:layout_constraintBottom_toTopOf="@+id/buttonV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonD"
+        app:layout_constraintTop_toBottomOf="@+id/outTextA2" />
+
+    <TextView
+        android:id="@+id/inTextA2"
+        android:layout_width="385dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="13dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/outTextA2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/outTextA2"
+        android:layout_width="382dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inTextA2" />
+
+    <Button
+        android:id="@+id/buttonM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="67dp"
+        android:onClick="appendButtonValue"
+        android:text="@string/buttonM"
+        app:layout_constraintBottom_toTopOf="@+id/buttonL"
+        app:layout_constraintEnd_toStartOf="@+id/buttonD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outTextA2" />
+
+    <Button
+        android:id="@+id/buttonD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginRight="61dp"
+        android:onClick="appendButtonValue"
+        android:text="@string/buttonD"
+        app:layout_constraintBottom_toTopOf="@+id/buttonX"
+        app:layout_constraintEnd_toStartOf="@+id/buttonC"
+        app:layout_constraintStart_toEndOf="@+id/buttonM"
+        app:layout_constraintTop_toBottomOf="@+id/outTextA2" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
