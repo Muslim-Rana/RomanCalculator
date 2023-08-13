@@ -56,4 +56,13 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.outText)).setText("");
     }
 
+    /**
+     * Switches from Integer-Roman conversion to Roman-Integer conversion
+     * @param view Used for accessing android studio features.
+     */
+    public void goRomanToInt (View view) {
+        Intent intent = new Intent(MainActivity.this, RomToInt.class);
+        startActivity(intent);
+    }
+
 }
