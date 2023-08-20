@@ -32,4 +32,23 @@ public class RomToInt extends AppCompatActivity {
         ((TextView) findViewById(R.id.outTextA2)).setText("");
     }
 
+    /**
+     * Converts a Roman numeral to its corresponding integer
+     * @param view Used for accessing the text fields
+     * @throws RomanException Catches invalid Roman numeral values
+     */
+    public void romanToInt(View view) throws RomanException {
+        Roman r = new Roman();
+        String s = ((TextView) findViewById(R.id.inTextA2)).getText().toString();
+        TextView t = (TextView) findViewById(R.id.outTextA2);
+        try {
+            t.setText(String.valueOf(r.convertToInt(s)));
+        }
+        catch (RomanException e) {
+            System.out.println(e.getMessage());
+            t.setText(e.getMessage());
+        }
+
+    }
+
 }
