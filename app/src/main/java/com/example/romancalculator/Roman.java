@@ -202,7 +202,16 @@ public class Roman {
 
 
 
-        return totalValue;
+        /**Using our convertToRoman method, if the strings match up for the value
+         * calculated then we know we have a valid Roman numeral
+         */
+
+        if (romanNumber.equals(convertToRoman(totalValue))) {
+            return totalValue;
+        }
+        else {
+            throw new RomanException (romanNumber + " is an invalid Roman numeral!!!!");
+        }
     }
 
 

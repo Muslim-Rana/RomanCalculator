@@ -1,5 +1,6 @@
 package com.example.romancalculator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -49,6 +50,15 @@ public class RomToInt extends AppCompatActivity {
             t.setText(e.getMessage());
         }
 
+    }
+
+    /**
+     * Switches from Integer-Roman conversion to Roman-Integer conversion.
+     * @param view Used for accessing features of android studio
+     */
+    public void goIntToRoman (View view) {
+        Intent intent = new Intent(RomToInt.this, MainActivity.class);
+        startActivity(intent);
     }
 
 }
